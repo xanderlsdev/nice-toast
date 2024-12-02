@@ -1,5 +1,5 @@
 {
-  "name": "nice-toast",
+  "name": "simple-toast",
   "version": "1.0.0",
   "description": "A library for displaying toast messages in the browser that adapts to any JavaScript framework",
   "main": "dist/index.js",
