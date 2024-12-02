@@ -1,6 +1,6 @@
 {
-  "name": "simple-toast",
-  "version": "1.0.0",
+  "name": "toast-kit",
+  "version": "1.0.1",
   "description": "A library for displaying toast messages in the browser that adapts to any JavaScript framework",
   "main": "dist/index.js",
   "moduele": "dist/index.js",
@@ -8,7 +8,7 @@
   "type": "module",
   "repository":{
     "type": "git",
-    "url": "https://github.com/xanderlsdev/nice-toast"
+  "url": "https://github.com/xanderlsdev/toast-kit"
   },
   "scripts": {
     "test": "echo \"Error: no test specifi ed\" && exit 1",
@@ -27,6 +27,7 @@
   "keywords": [
     "\"pdf\"",
     "\"toast\"",
+    "\"toast-kit\"",
     "\"modal\"",
     "\"javascript\"",
     "\"typescript\""

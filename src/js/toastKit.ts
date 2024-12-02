@@ -50,7 +50,7 @@ class ToastManager {
 
         // Crear contenedor dinámicamente
         this.container = document.createElement('div');
-        this.container.id = 'toast-container';
+        this.container.id = 'toast-kit-container';
         this.container.className = 'top-right';
     
         // Configuración por defecto
@@ -87,20 +87,20 @@ class ToastManager {
         this.setPosition(config.position!);
 
         const toast = document.createElement('div');
-        toast.classList.add('toast', `toast-${config.type}`);
+        toast.classList.add('toast-kit', `toast-${config.type}`);
         toast.style.transform = 'translateY(-20px)';
         
         const iconContainer = document.createElement('div');
-        iconContainer.classList.add('toast-icon');
+        iconContainer.classList.add('toast-kit-icon');
         iconContainer.innerHTML = this.iconMap[config.type!];
         
         const contentDiv = document.createElement('div');
-        contentDiv.classList.add('toast-content');
+        contentDiv.classList.add('toast-kit-content');
         contentDiv.textContent = message;
         
         const closeSpan = document.createElement('span');
         closeSpan.textContent = '✕';
-        closeSpan.classList.add('toast-close');
+        closeSpan.classList.add('toast-kit-close');
         closeSpan.onclick = () => this.remove(toast);
         
         toast.appendChild(iconContainer);

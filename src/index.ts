@@ -1,5 +1,5 @@
-import CustomToast from './js/customToast';
+import ToastKit from './js/toastKit';
 
-const customToast = new CustomToast();
+const toastKit = new ToastKit();
 
-export { customToast };
+export { toastKit, ToastKit };

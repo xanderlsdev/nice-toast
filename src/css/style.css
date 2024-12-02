@@ -1,4 +1,4 @@
-#toast-container {
+#toast-kit-container {
     position: fixed;
     display: flex;
     z-index: 1000;
@@ -6,35 +6,35 @@
 }
 
 /* Posiciones */
-#toast-container.top-right {
+#toast-kit-container.top-right {
     top: 20px;
     right: 20px;
     flex-direction: column;
     align-items: flex-end;
 }
 
-#toast-container.top-left {
+#toast-kit-container.top-left {
     top: 20px;
     left: 20px;
     flex-direction: column;
     align-items: flex-start;
 }
 
-#toast-container.bottom-right {
+#toast-kit-container.bottom-right {
     bottom: 20px;
     right: 20px;
     flex-direction: column;
     align-items: flex-end;
 }
 
-#toast-container.bottom-left {
+#toast-kit-container.bottom-left {
     bottom: 20px;
     left: 20px;
     flex-direction: column;
     align-items: flex-start;
 }
 
-#toast-container.top-center {
+#toast-kit-container.top-center {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -42,7 +42,7 @@
     align-items: center;
 }
 
-#toast-container .toast {
+#toast-kit-container .toast-kit {
     min-width: 250px;
     padding: 15px;
     border-radius: 4px;
@@ -57,39 +57,39 @@
     font-size: 1rem;
 }
 
-#toast-container .toast.show {
+#toast-kit-container .toast-kit.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-#toast-container .toast-icon {
+#toast-kit-container .toast-kit-icon {
     font-size: 1.2em;
     margin-right: 10px;
 }
 
-#toast-container .toast-content {
+#toast-kit-container .toast-kit-content {
     flex-grow: 1;
 }
 
-#toast-container .toast-close {
+#toast-kit-container .toast-kit-close {
     margin-left: 10px;
     cursor: pointer;
     color: rgba(255,255,255,0.7);
 }
 
-#toast-container .toast-success {
+#toast-kit-container .toast-success {
     background-color: #28a745;
 }
 
-#toast-container .toast-warning {
+#toast-kit-container .toast-warning {
     background-color: #ffc107;
     color: #212529;
 }
 
-#toast-container .toast-error {
+#toast-kit-container .toast-error {
     background-color: #dc3545;
 }
 
-#toast-container .toast-info {
+#toast-kit-container .toast-info {
     background-color: #17a2b8;
 }
