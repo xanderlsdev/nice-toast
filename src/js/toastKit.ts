@@ -88,7 +88,7 @@ class ToastManager {
 
         const toast = document.createElement('div');
         toast.classList.add('toast-kit', `toast-${config.type}`);
-        toast.style.transform = 'translateY(-20px)';
+        // toast.style.transform = 'translateY(-20px)';
         
         const iconContainer = document.createElement('div');
         iconContainer.classList.add('toast-kit-icon');
