@@ -6,6 +6,13 @@ export enum ToastStyle {
     gradient = 'gradient'
 }
 
+export enum ToastType {
+    success = 'success',
+    warning = 'warning',
+    error = 'error',
+    info = 'info'
+}
+
 type ToastConfig = {
     title: string;
     message: string;
@@ -13,7 +20,7 @@ type ToastConfig = {
     duration: number;
     style: ToastStyle;
     border?: boolean;
-    type: string;
+    type: ToastType;
 }
 
 class ToastManager {
@@ -71,7 +78,7 @@ class ToastManager {
             duration: 3000,
             style: ToastStyle.solid,
             border: true,
-            type: 'info'
+            type: ToastType.info
         };
 
         // Agregar al body automáticamente
@@ -105,34 +112,34 @@ class ToastManager {
 
         // Establecer estilos según config.style
         if (config.style === ToastStyle.light) {
-            toast.classList.add(`toast-${config.type}-light`);
+            toast.classList.add(`toast-kit-${config.type}-light`);
         } else if (config.style === ToastStyle.gradient) {
-            toast.classList.add(`toast-${config.type}-gradient`);
+            toast.classList.add(`toast-kit-${config.type}-gradient`);
         } else {
-            toast.classList.add(`toast-${config.type}`);
+            toast.classList.add(`toast-kit-${config.type}`);
         }
 
-        if (config.border) toast.classList.add('border');
+        if (config.border) toast.classList.add('toast-kit-border');
 
         // Crear icono
         const icon = document.createElement('div');
         icon.classList.add('toast-kit-icon');
         if (config.style === ToastStyle.light) {
-            if (config.type === 'success') {
+            if (config.type === ToastType.success) {
                 icon.classList.add('toast-kit-icon-success-light');
-            } else if (config.type === 'warning') {
+            } else if (config.type === ToastType.warning) {
                 icon.classList.add('toast-kit-icon-warning-light');
-            } else if (config.type === 'error') {
+            } else if (config.type === ToastType.error) {
                 icon.classList.add('toast-kit-icon-error-light');
             } else {
                 icon.classList.add('toast-kit-icon-info-light');
             }
         } else {
-            if (config.type === 'success') {
+            if (config.type === ToastType.success) {
                 icon.classList.add('toast-kit-icon-success-gradient');
-            } else if (config.type === 'warning') {
+            } else if (config.type === ToastType.warning) {
                 icon.classList.add('toast-kit-icon-warning-gradient');
-            } else if (config.type === 'error') {
+            } else if (config.type === ToastType.error) {
                 icon.classList.add('toast-kit-icon-warning-gradient');
             } else {
                 icon.classList.add('toast-kit-icon-info-gradient');
@@ -184,7 +191,7 @@ class ToastManager {
 
         // Manejo del temporizador
         let timer: number | null = null;
-        if (config.duration! > 0) {
+        if (config.duration > 0) {
             timer = window.setTimeout(() => this.remove(toast), config.duration);
         }
 
@@ -207,9 +214,9 @@ class ToastManager {
         message: 'Write your message here o add other content text',
         duration: 0,
         position: 'top-right',
-        style: ToastStyle.solid,
+        style: ToastStyle.light,
         border: true,
-        type: 'success'
+        type: ToastType.info
     }) {
         // Mostrar todos los tipos de toast
         this.success({
@@ -238,19 +245,19 @@ class ToastManager {
 
     // Métodos de conveniencia
     success(options: ToastConfig) {
-        return this.show({ ...options, type: 'success' });
+        return this.show({ ...options, type: ToastType.success });
     }
 
     warning(options: ToastConfig) {
-        return this.show({ ...options, type: 'warning' });
+        return this.show({ ...options, type: ToastType.warning });
     }
 
     error(options: ToastConfig) {
-        return this.show({ ...options, type: 'error' });
+        return this.show({ ...options, type: ToastType.error });
     }
 
     info(options: ToastConfig) {
-        return this.show({ ...options, type: 'info' });
+        return this.show({ ...options, type: ToastType.info });
     }
 
     // Método para cambiar la posición

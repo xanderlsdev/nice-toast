@@ -1,5 +1,5 @@
-import ToastKit, { ToastStyle } from './js/toastKit';
+import ToastKit, { ToastStyle, ToastType } from './js/toastKit';
 
 const toastKit = new ToastKit();
 
-export { toastKit, ToastKit, ToastStyle };
+export { toastKit, ToastKit, ToastStyle, ToastType };

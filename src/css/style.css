@@ -63,6 +63,7 @@
 #toast-kit-container .toast-kit {
     position: relative;
     width: 100%;
+    min-width: 290px;
     max-width: 290px;
     padding: 0.625rem 1.125rem;
     color: white;
@@ -107,79 +108,78 @@
 }
 
 /* Agregar borde al toast */
-#toast-kit-container .toast-kit.border {
+#toast-kit-container .toast-kit.toast-kit-border {
     border-radius: 4px;
 }
 
-
 /* Estilo para mostrar resultados exitosos */
-#toast-kit-container .toast-success {
+#toast-kit-container .toast-kit-success {
     background: #32BB71;
     border: 1px solid #43D590;
 }
 
 /* Estilo para mostrar resultados problematicos */
-#toast-kit-container .toast-warning {
+#toast-kit-container .toast-kit-warning {
     background: #FF8C04;
     border: 1px solid #FFDF8D;
 }
 
 /* EEstilo para mostrar resultados erroneos */
-#toast-kit-container .toast-error {
+#toast-kit-container .toast-kit-error {
     background: #D42525;
     border: 1px solid #F0863A;
 }
 
 /* Estilo para mostrar resultados informativos  */
-#toast-kit-container .toast-info {
+#toast-kit-container .toast-kit-info {
     background: #2D82B2;
     border: 1px solid #7BCFED;
 }
 
 /* Estilo para mostrar resultados exitosos en modo claro */
-#toast-kit-container .toast-success-light {
+#toast-kit-container .toast-kit-success-light {
     background: #F6FFF9;
     border: 1px solid #48C1B5;
 }
 
 /* Estilo para mostrar resultados problematicos en modo claro */
-#toast-kit-container .toast-warning-light {
+#toast-kit-container .toast-kit-warning-light {
     background: #FFF8EC;
     border: 1px solid #F7D9A4;
 }
 
 /* Estilo para mostrar resultados erroneos en modo claro */
-#toast-kit-container .toast-error-light {
+#toast-kit-container .toast-kit-error-light {
     background: #FFF5F3;
     border: 1px solid #F4B0A1;
 }
 
 /* Estilo para mostrar resultados informativos en modo claro */
-#toast-kit-container .toast-info-light {
+#toast-kit-container .toast-kit-info-light {
     background: #F5F9FF;
     border: 1px solid #9DC0EE;
 }
 
 /* Estilo para mostrar resultados exitosos en modo gradiente */
-#toast-kit-container .toast-success-gradient {
+#toast-kit-container .toast-kit-success-gradient {
     background: linear-gradient(to right, #32BB71 18%, #2A9D8F 100%);
     border: 1px solid #43D590;
 }
 
 /* Estilo para mostrar resultados problematicos en modo gradiente */
-#toast-kit-container .toast-warning-gradient {
+#toast-kit-container .toast-kit-warning-gradient {
     background: linear-gradient(to right, #F8B806 0%, #FF8C04 100%);
     border: 1px solid #FFDF8D;
 }
 
 /* Estilo para mostrar resultados erroneos en modo gradiente */
-#toast-kit-container .toast-error-gradient {
+#toast-kit-container .toast-kit-error-gradient {
     background: linear-gradient(to right, #F6743E 18%, #D42525 100%);
     border: 1px solid #F0863A;
 }
 
 /* Estilo para mostrar resultados informativos en modo gradiente */
-#toast-kit-container .toast-info-gradient {
+#toast-kit-container .toast-kit-info-gradient {
     background: linear-gradient(to right, #329ABB 0%, #2D82B2 100%);
     border: 1px solid #7BCFED;
 }
@@ -230,6 +230,7 @@
 /* TEXTO */
 
 #toast-kit-container .toast-kit-content {
+    word-break: break-all;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -255,7 +256,6 @@
     padding: 0;
     margin: 0;
     font-size: 0.9rem;
-    overflow-wrap: break-word;
 }
 
 #toast-kit-container .toast-kit-content p.p-light {
@@ -279,4 +279,14 @@
 
 #toast-kit-container .toast-kit-close.toast-kit-close-gradient {
     color: #ffffff;
+}
+
+
+@media screen and (max-width: 350px) {
+    #toast-kit-container .toast-kit {
+        width: 100%;
+        min-width: auto;
+        max-width: 100%;
+    }
+    
 }
