@@ -1,42 +1,112 @@
 # Toast Kit
 
-Toast Kit is a library for displaying toast messages in the browser that adapts to any JavaScript framework.
+**Toast Kit** is a flexible and easy-to-use library for displaying toast notifications in the browser. It seamlessly integrates with any JavaScript framework and provides various styles and customization options.
 
 ## Installation
+
+To get started, install **Toast Kit** via npm:
 
 ```bash
 npm install toast-kit
 ```
 
-## Usage
+## Basic Usage
+
+You can quickly display toast messages using the `toastKit` method. Here's how to show different types of messages:
 
 ```javascript
-import { toastKit } from 'toast-kit';
+import { toastKit } from "toast-kit";
 
-toastKit.success('Success message');
-toastKit.warning('Warning message');
-toastKit.error('Error message');
-toastKit.info('Info message');
+toastKit.success({
+    title: "Success",
+    message: "Your operation was successful.",
+});
+
+toastKit.warning({
+    title: "Warning",
+    message: "This is a warning message.",
+});
+
+toastKit.error({
+    title: "Error",
+    message: "An error has occurred.",
+});
+
+toastKit.info({
+    title: "Info",
+    message: "This is an informational message.",
+});
 ```
 
-## Options
+## Customization Options
 
-You can pass an object of options as the second argument to the `toastKit` function.
+Customize your toasts with a variety of options by passing an object to the `toastKit` method:
 
 ```javascript
-toastKit.success('Success message', { duration: 3000, position: 'top-right' });
+import { toastKit, ToastStyle } from "toast-kit";
+
+toastKit.success({
+    title: 'Toast Title',
+    message: 'Your custom message goes here.',
+    duration: 5000,           // Duration of the toast in ms
+    position: 'top-right',    // Position on the screen
+    style: ToastStyle.solid,  // Available styles: solid, light, gradient
+    border: true,             // Show border around the toast
+    type: 'success'           // Toast type: success, warning, error, info
+});
 ```
 
-## Examples
+## Available Styles
 
-<img src="example/success.jpg" alt="Success" width="300"  />
-<img src="example/warning.jpg" alt="Warning" width="300" />
-<img src="example/error.jpg" alt="Error" width="300" />
-<img src="example/information.jpg" alt="Information" width="300" />
+Toast Kit offers multiple styles for your toast notifications:
 
-The available options are:
+### Style: Solid
 
-| Option | Type | Default | Description |
-| --- | --- | --- | --- |
-| `duration` | `number` | `3000` | The duration of the toast message in milliseconds.
-| `position` | `string` | `'top-right'` | The position of the toast message. Possible values are `'top-right'`, `'top-left'`, `'bottom-right'`, `'bottom-left'`, `'top-center'`.
+<img src="example/gradient.webp" alt="Solid Style" width="300" />
+
+### Style: Light
+
+<img src="example/light.webp" alt="Light Style" width="300" />
+
+### Style: Gradient
+
+<img src="example/solid.webp" alt="Gradient Style" width="300" />
+
+## Available Options
+
+| Option     | Type     | Default        | Description                                                                                                                           |
+| ---------- | -------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`    | `string` | `'Toast Title'` | The title of the toast message.                                                                                                       |
+| `message`  | `string` | `'Write your message here.'` | The content of the toast message.                                                                                                      |
+| `style`    | `string` | `'solid'`      | The style of the toast message. Options: `'solid'`, `'light'`, `'gradient'`.                                                           |
+| `border`   | `boolean` | `true`         | Whether or not to display a border around the toast message.                                                                          |
+| `type`     | `string` | `'info'`       | The type of the toast message. Options: `'success'`, `'warning'`, `'error'`, `'info'`.                                                |
+| `duration` | `number` | `3000`         | The duration (in milliseconds) for which the toast message will be displayed.                                                         |
+| `position` | `string` | `'top-right'`  | The position of the toast message. Options: `'top-right'`, `'top-left'`, `'bottom-right'`, `'bottom-left'`, `'top-center'`.           |
+
+## Example Configurations
+
+Here are some example configurations you can use:
+
+- **Success Toast with Solid Style**:
+    ```javascript
+    toastKit.success({
+        title: 'Success!',
+        message: 'Your changes were saved.',
+        style: ToastStyle.solid,
+        duration: 4000,
+        position: 'top-right',
+    });
+    ```
+
+- **Error Toast with Gradient Style**:
+    ```javascript
+    toastKit.error({
+        title: 'Error',
+        message: 'Something went wrong.',
+        style: ToastStyle.gradient,
+        border: false,
+        duration: 5000,
+        position: 'bottom-left',
+    });
+    ```
