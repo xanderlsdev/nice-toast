@@ -113,25 +113,25 @@
 }
 
 /* Estilo para mostrar resultados exitosos */
-#toast-kit-container .toast-kit-success {
+#toast-kit-container .toast-kit-success-solid {
     background: #32BB71;
     border: 1px solid #43D590;
 }
 
 /* Estilo para mostrar resultados problematicos */
-#toast-kit-container .toast-kit-warning {
+#toast-kit-container .toast-kit-warning-solid  {
     background: #FF8C04;
     border: 1px solid #FFDF8D;
 }
 
 /* EEstilo para mostrar resultados erroneos */
-#toast-kit-container .toast-kit-error {
+#toast-kit-container .toast-kit-error-solid  {
     background: #D42525;
     border: 1px solid #F0863A;
 }
 
 /* Estilo para mostrar resultados informativos  */
-#toast-kit-container .toast-kit-info {
+#toast-kit-container .toast-kit-info-solid  {
     background: #2D82B2;
     border: 1px solid #7BCFED;
 }

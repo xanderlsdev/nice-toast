@@ -21,6 +21,8 @@ type ToastConfig = {
     style: ToastStyle;
     border?: boolean;
     type: ToastType;
+    onOpen?: () => void;
+    onClose?: () => void;
 }
 
 class ToastManager {
@@ -116,7 +118,7 @@ class ToastManager {
         } else if (config.style === ToastStyle.gradient) {
             toast.classList.add(`toast-kit-${config.type}-gradient`);
         } else {
-            toast.classList.add(`toast-kit-${config.type}`);
+            toast.classList.add(`toast-kit-${config.type}-solid`);
         }
 
         if (config.border) toast.classList.add('toast-kit-border');
@@ -185,6 +187,7 @@ class ToastManager {
 
         // Añadir al contenedor
         this.container!.appendChild(toast);
+        config.onOpen?.();
 
         // Trigger reflow to enable transition
         toast.offsetHeight;
@@ -192,7 +195,7 @@ class ToastManager {
         // Manejo del temporizador
         let timer: number | null = null;
         if (config.duration > 0) {
-            timer = window.setTimeout(() => this.remove(toast), config.duration);
+            timer = window.setTimeout(() => this.remove(toast, config.onClose), config.duration);
         }
 
         // Cerrar manualmente y cancelar temporizador
@@ -202,7 +205,7 @@ class ToastManager {
                 clearTimeout(timer);
             }
 
-            this.remove(toast);
+            this.remove(toast, config.onClose);
         };
 
         return this; // Permitir encadenamiento
@@ -267,10 +270,11 @@ class ToastManager {
     }
 
     // Método para eliminar toast
-    remove(toast: HTMLElement) {
+    remove(toast: HTMLElement, onClose?: () => void) {
         toast.classList.add('toast-kit-hidden');
         toast.addEventListener('animationend', () => {
             this.container!.removeChild(toast);
+            onClose?.();
         });
 
         return this;

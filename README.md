@@ -43,16 +43,22 @@ toastKit.info({
 Customize your toasts with a variety of options by passing an object to the `toastKit` method:
 
 ```javascript
-import { toastKit, ToastStyle } from "toast-kit";
+import { toastKit, ToastStyle, ToastType } from "toast-kit";
 
-toastKit.success({
+toastKit.show({
     title: 'Toast Title',
     message: 'Your custom message goes here.',
     duration: 5000,           // Duration of the toast in ms
     position: 'top-right',    // Position on the screen
     style: ToastStyle.solid,  // Available styles: solid, light, gradient
     border: true,             // Show border around the toast
-    type: 'success'           // Toast type: success, warning, error, info
+    type: ToastType.success   // Toast type: success, warning, error, info,
+    onOpen: () => {           // Callback function when toast is opened
+        console.log("Toast opened");
+    },
+    onClose: () => {          // Callback function when toast is closed
+        console.log("Toast closed");
+    },
 });
 ```
 
@@ -83,6 +89,8 @@ Toast Kit offers multiple styles for your toast notifications:
 | `type`     | `string` | `'info'`       | The type of the toast message. Options: `'success'`, `'warning'`, `'error'`, `'info'`.                                                |
 | `duration` | `number` | `3000`         | The duration (in milliseconds) for which the toast message will be displayed.                                                         |
 | `position` | `string` | `'top-right'`  | The position of the toast message. Options: `'top-right'`, `'top-left'`, `'bottom-right'`, `'bottom-left'`, `'top-center'`.           |
+| `onOpen`   | `function` | `undefined`    | Callback function that is called when the toast is opened.                                                                             |
+| `onClose`  | `function` | `undefined`    | Callback function that is called when the toast is closed.                                                                             |
 
 ## Example Configurations
 
@@ -99,6 +107,17 @@ Here are some example configurations you can use:
     });
     ```
 
+- **Warning Toast with Light Style**:
+    ```javascript
+    toastKit.warning({
+        title: 'Warning!',
+        message: 'It\'s a warning message.',
+        style: ToastStyle.light,
+        duration: 4000,
+        position: 'top-right',
+    });
+    ```
+
 - **Error Toast with Gradient Style**:
     ```javascript
     toastKit.error({
@@ -110,3 +129,19 @@ Here are some example configurations you can use:
         position: 'bottom-left',
     });
     ```
+
+- **Info Toast with Solid Style and Callbacks**:
+    ```javascript
+    toastKit.info({
+        title: 'Info',
+        message: 'This is an informational message.',
+        style: ToastStyle.solid,
+        duration: 3000,
+        position: 'top-center',
+        onOpen: () => {           
+            console.log("Toast opened");
+        },
+        onClose: () => {          
+            console.log("Toast closed");
+        },
+    });
