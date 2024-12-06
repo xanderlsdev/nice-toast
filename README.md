@@ -68,7 +68,7 @@ Toast Kit offers multiple styles for your toast notifications:
 
 ### Style: Solid
 
-<img src="example/gradient.webp" alt="Solid Style" width="300" />
+<img src="example/solid.webp" alt="Solid Style" width="300" />
 
 ### Style: Light
 
@@ -76,7 +76,7 @@ Toast Kit offers multiple styles for your toast notifications:
 
 ### Style: Gradient
 
-<img src="example/solid.webp" alt="Gradient Style" width="300" />
+<img src="example/gradient.webp" alt="Gradient Style" width="300" />
 
 ## Available Options
 
