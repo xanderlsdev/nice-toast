@@ -16,11 +16,11 @@ export enum ToastType {
 type ToastConfig = {
     title: string;
     message: string;
-    position: string;
-    duration: number;
-    style: ToastStyle;
+    position?: string;
+    duration?: number;
+    style?: ToastStyle;
     border?: boolean;
-    type: ToastType;
+    type?: ToastType;
     onOpen?: () => void;
     onClose?: () => void;
 }
@@ -194,7 +194,7 @@ class ToastManager {
 
         // Manejo del temporizador
         let timer: number | null = null;
-        if (config.duration > 0) {
+        if (config.duration && config.duration > 0) {
             timer = window.setTimeout(() => this.remove(toast, config.onClose), config.duration);
         }
 
